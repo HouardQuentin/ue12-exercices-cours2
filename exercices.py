@@ -183,7 +183,7 @@ print(g_vectorized(np.array([1, -2, 3, -4, 5])))  # attendu: [ 1 -2  9 -4 25]
 
 # %%
 def select_even(arr):
-    return arr[1::2]
+    return arr[::2]
 
 
 print(
@@ -198,7 +198,13 @@ print(
 
 # %%
 def replace_negatives(arr):
-    pass  # 👈 Insérez le code ici
+    def pos(x):
+        if x>0:
+            return x
+        else:
+            return 0
+    pos2 = np.vectorize(pos)
+    return pos2(arr)
 
 
 print(replace_negatives(np.array([1, -2, 3, -4, 5])))  # attendu: [1 0 3 0 5]
