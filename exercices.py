@@ -183,7 +183,8 @@ print(g_vectorized(np.array([1, -2, 3, -4, 5])))  # attendu: [ 1 -2  9 -4 25]
 
 # %%
 def select_even(arr):
-    return arr[::2]
+    pair = arr%2 == 0
+    return arr[pair]
 
 
 print(
@@ -218,7 +219,7 @@ print(replace_negatives(np.array([1, -2, 3, -4, 5])))  # attendu: [1 0 3 0 5]
 
 # %%
 def get_center(arr):
-    pass  # 👈 Insérez le code ici
+    return arr[1:-1,1:-1]
 
 
 print(get_center(np.arange(1, 26).reshape(5, 5)))  # attendu: [[ 7  8  9]
@@ -233,7 +234,11 @@ print(get_center(np.arange(1, 26).reshape(5, 5)))  # attendu: [[ 7  8  9]
 
 # %%
 def swap_first_rows(arr):
-    pass  # 👈 Insérez le code ici
+    l0 = arr[0].copy()
+    l1 = arr[1].copy()
+    arr[0] = l1
+    arr[1] = l0
+    return arr
 
 
 print(swap_first_rows(np.array([[1, 2], [3, 4], [5, 6]])))  # attendu: [[3 4]
@@ -251,7 +256,11 @@ print(swap_first_rows(np.array([[1, 2], [3, 4], [5, 6]])))  # attendu: [[3 4]
 
 # %%
 def funny_checkerboard(size):
-    pass  # 👈 Insérez le code ici
+    res = np.zeros((size,size))
+    res[1::2,1::2] = 1
+    col = np.arange(size) + 1
+    res
+    return res
 
 
 print(funny_checkerboard(5))  # attendu: [[1. 0. 1. 0. 1.]
