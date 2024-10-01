@@ -259,7 +259,9 @@ def funny_checkerboard(size):
     res = np.zeros((size,size))
     res[1::2,1::2] = 1
     col = np.arange(size) + 1
-    res
+    pair = col%2 == 0
+    col[pair] = 0
+    res[:,::2] = np.resize(col, (size,1))
     return res
 
 
